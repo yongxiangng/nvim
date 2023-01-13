@@ -12,9 +12,11 @@ set hidden
 set clipboard=unnamedplus
 set cursorline
 
+set encoding=UTF-8
+
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
+" autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\n\+\%$//e
 
 " muh plugins
 call plug#begin('~/.local/share/nvim/plugged')
@@ -60,6 +62,10 @@ Plug 'akinsho/bufferline.nvim'
 
 " session-manager
 Plug 'Shatur/neovim-session-manager'
+
+" nerdtree
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 augroup qs_colors
@@ -67,6 +73,9 @@ augroup qs_colors
     autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
     autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 augroup END
+
+" nerdtree
+map <silent> <C-n> :NERDTreeFocus<CR>
 
 " fzf-vim
 set rtp+=/bin/
